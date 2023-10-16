@@ -70,7 +70,6 @@
                 <li>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </li>
-
               </ul>
             </li>
             <li class="nav-item">
@@ -91,7 +90,7 @@
     <div class="container mt-4">
       <div class="card">
         <div class="card-header">
-          <h5>Jumlah Penduduk</h5>
+          <h5>Jumlah Produksi Tanaman Rambutan</h5>
         </div>
         <div class="card-body">
           <div id="chart"></div>
@@ -158,70 +157,60 @@
     ></script>
 
     <script>
-          var options = {
-          series: [{
-          name: 'Jumlah Penduduk',
-          data: [ 9021, 7481, 8173, 27448, 7104, 9824]
-        }],
-          chart: {
-          type: 'bar',
-          height: 350
+      var options = {
+          series: [
+          {
+            data: [
+              {
+                x: 'Bonegunu',
+                y: 376
+              },
+              {
+                x: 'Kambowa',
+                y: 15
+              },
+              {
+                x: 'Wakorumba Utara',
+                y: 44
+              },
+              {
+                x: 'Kulisusu',
+                y: 86
+              },
+              {
+                x: 'Kulisusu Barat',
+                y: 625
+              },
+              {
+                x: 'Kulisusu Utara',
+                y: 50
+              },
+            ]
+          }
+        ],
+          legend: {
+          show: false
         },
-
+        chart: {
+          height: 350,
+          type: 'treemap'
+        },
         title: {
-          text: 'Jumlah Penduduk Menurut Kecamatan di Kabupaten Buton Utara Tahun 2022',
+          text: 'Jumlah Produksi Tanaman Rambutan Menurut Kecamatan di Kabupaten Buton Utara (kuintal) Tahun 2022',
           align: 'center'
         },
-
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded',
-            dataLabels: {
-                position: 'top',
-            },
-          },
-        },
-
-        dataLabels: {
-          enabled: true,
-        },
-
         colors: [
-          '#b8a9c9',
-          '#C0ADDB'
+          '#618685',
+          '#b1cbbb',
+          '#eea29a',
+          '#c94c4c',
+          '#80ced6',
+          '#b2b2b2'
         ],
-
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
-
-        xaxis: {
-          categories: [
-          'Bonegunu', 'Kambowa', 'Wakorumba Utara', 'Kulisusu', 'Kulisusu Barat', 'Kulisusu Utara'],
-          title: {
-            text: 'Kecamatan'
-          }
-        },
-
-        yaxis: {
-          title: {
-            text: 'Jiwa'
-          }
-        },
-
-        fill: {
-          opacity: 1
-        },
-        
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return val + " jiwa"
-            }
+        plotOptions: {
+          treemap: {
+            distributed: true,
+            enableShades: false
           }
         }
         };

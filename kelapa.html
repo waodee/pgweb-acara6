@@ -58,17 +58,19 @@
                 <i class="fa-solid fa-table"></i> Data
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
-                <li>
-                  <a class="dropdown-item" href="kepadatan.html">Kepadatan Penduduk </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="luas.html">Luas Wilayah </a>
-                </li>
+
+                <a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
+                <li><a class="dropdown-item" href="luas.html">Luas Wilayah</a></li>
+                <li><a class="dropdown-item" href="sekolah.html">Jumlah Sekolah</a></li>
+                <li><a class="dropdown-item" href="kelapa.html">Luas Areal Tanaman Kelapa</a></li>
+                <li><a class="dropdown-item" href="rambutan.html">Jumlah Produksi Tanaman Rambutan</a></li>
+
                 <li><hr class="dropdown-divider" /></li>
+
                 <li>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </li>
+
               </ul>
             </li>
             <li class="nav-item">
@@ -89,7 +91,7 @@
     <div class="container mt-4">
       <div class="card">
         <div class="card-header">
-          <h5>Kepadatan Penduduk</h5>
+          <h5>Luas Areal Tanaman Kelapa</h5>
         </div>
         <div class="card-body">
           <div id="chart"></div>
@@ -119,7 +121,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p>Nama: Esha</p>
+            <p>Nama: Esha Amalia</p>
             <p>NIM: 20/457119/SV/17566</p>
             <p>Kelas: A</p>
             <p>
@@ -156,53 +158,69 @@
     ></script>
 
     <script>
-           var options = {
+        var options = {
           series: [{
-          name: 'Kepadatan Penduduk',
-          data: [ 18.36, 24.65, 33.32, 158.86, 19.18, 28.92]
+          data: [1511, 417, 698, 467, 766, 1479]
         }],
           chart: {
           type: 'bar',
-          height: 350
+          height: 380
         },
         plotOptions: {
           bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded',
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
             dataLabels: {
-                position: 'top',
+              position: 'bottom'
             },
-          },
+          }
         },
+        colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
+          '#f48024', '#69d2e7'
+        ],
         dataLabels: {
-          enabled: true
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
         },
         stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
+          width: 1,
+          colors: ['#fff']
         },
-        
         xaxis: {
-          categories: [
-          'Bonegunu', 'Kambowa', 'Wakorumba Utara', 'Kulisusu', 'Kulisusu Barat', 'Kulisusu Utara'],
-          title: {
-            text: 'Kecamatan'
-          }
+          categories: ['Bonegunu', 'Kambowa', 'Wakorumba Utara', 'Kulisusu', 'Kulisusu Barat', 'Kulisusu Utara'],
         },
         yaxis: {
-          title: {
-            text: 'Km2'
+          labels: {
+            show: false
           }
         },
-        fill: {
-          opacity: 1
+        title: {
+            text: 'Luas Areal Tanaman Perkebunan Kelapa (ha) Menurut Kecamatan di Kabupaten Buton Utara Tahun 2022',
+            align: 'center',
+            floating: true
         },
+        
         tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
           y: {
-            formatter: function (val) {
-              return val + " per km2"
+            title: {
+              formatter: function () {
+                return ''
+              }
             }
           }
         }
